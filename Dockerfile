@@ -8,8 +8,8 @@ WORKDIR /usr/src/app
 RUN apk update && apk upgrade && apk add git curl
 
 ONBUILD COPY . /usr/src/app/
-RUN mkdir -p node_modules/node-sass/vendor/linux-x64-59
-RUN curl -L https://github.com/sass/node-sass/releases/download/v4.8.2/linux_musl-x64-59_binding.node -o node_modules/node-sass/vendor/linux-x64-59/binding.node
+RUN mkdir -p /root/.npm/node-sass/4.8.2/
+RUN curl -L https://github.com/sass/node-sass/releases/download/v4.8.2/linux_musl-x64-59_binding.node -o /root/.npm/node-sass/4.8.2/linux_musl-x64-59_binding.node
 
 ONBUILD RUN npm install
 RUN npm rebuild node-sass
